@@ -10,6 +10,6 @@ secrets.txt
 ./build/*
 .idea/*
 .idea
-env
+.env
 venv
 .venv
