@@ -21,6 +21,6 @@ def main():
     except Exception as e:
         print(f"Error: {e}")
 
-if name = "__main__":
+if name == "__main__":
     main()
-    
+
