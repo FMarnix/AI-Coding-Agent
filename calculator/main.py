@@ -1,5 +1,5 @@
 import sys
-from pkg.calculator import calculator
+from pkg.calculator import Calculator
 from pkg.render import format_json_output
 
 def main():
@@ -21,6 +21,6 @@ def main():
     except Exception as e:
         print(f"Error: {e}")
 
-if name == "__main__":
+if __name__ == "__main__":
     main()
 
