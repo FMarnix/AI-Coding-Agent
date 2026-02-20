@@ -9,8 +9,8 @@ def get_files_info(working_directory, directory="."):
         return f'Error: "{directory}" is not a directory'
     try:
         files_info = []
-        for filename in os.listdire(target_dir):
-            filepath = os.apth.join(target_dir, filename)
+        for filename in os.listdir(target_dir):
+            filepath = os.path.join(target_dir, filename)
             file_size = 0
             is_dir = os.path.isdir(filepath)
             file_size = os.path.getsize(filepath)
