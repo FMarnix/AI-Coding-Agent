@@ -3,6 +3,7 @@ import sys
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+from config import system_prompt
 
 def main():
     load_dotenv()
@@ -20,6 +21,7 @@ def main():
 
     response = client.models.generate_content(
         model='gemini-2.5-flash', contents=messages,
+        config=types.GenerateContentConfig(system_instruction=system_prompt)
     )
     print(response.text)
     print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}")
