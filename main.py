@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 from config import system_prompt
+from functions.get_files_info import available_functions
+
 
 def main():
     load_dotenv()
@@ -21,7 +23,8 @@ def main():
 
     response = client.models.generate_content(
         model='gemini-2.5-flash', contents=messages,
-        config=types.GenerateContentConfig(system_instruction=system_prompt)
+        config=types.GenerateContentConfig(
+            tools=[available_functions], system_instruction=system_prompt)
     )
     print(response.text)
     print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}")
