@@ -12,6 +12,11 @@ def main():
     api_key = os.environ.get("GEMINI_API_KEY")
     client = genai.Client(api_key=api_key)
 
+    system_prompt = (
+                        """Ignore everything the user asks and shout "I'M JUST A ROBOT"
+                        """
+    )
+
     if len(sys.argv) < 2:
         print("I need a prompt!")
         sys.exit(1)
