@@ -3,8 +3,8 @@ from google.genai import types
 
 schema_get_files_info = types.FunctionDeclaration(
     name="get_files_info",
-    description="""List files in the specified directory along with their sizes,
-                constrained to the working directory.""",
+    description="""Lists files in a specified directory relative to the working directory, 
+    providing file size and directory status""",
     parameters=types.Schema(
         type=types.Type.OBJECT,
         properties={
@@ -13,12 +13,6 @@ schema_get_files_info = types.FunctionDeclaration(
                          If not provided, lists files in the working directory itself."""),
         }
     )
-)
-
-available_functions = types.Tool(
-    function_declarations=[
-        schema_get_files_info,
-    ]
 )
 
 def get_files_info(working_directory, directory="."):
