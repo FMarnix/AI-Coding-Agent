@@ -1,4 +1,20 @@
 import os
+import subprocess
+from google.genai import types
+
+schema_write_file_content = types.FunctionDeclaration(
+    name="write_file_content",
+    description="""Writes a file with the given content.""",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "directory": types.Schema(type=types.Type.STRING,
+            description="""The file to run, relative to the working directory."""),
+            "args": types.Schema(type=types.Type.ARRAY, items=types.Schema(type=types.Type.STRING),
+            description="""Additional CLI arguments to pass to the python file."""),
+        }
+    )
+)
 
 def write_file(working_directory, file_path, content):
     abs_working_dir = os.path.abspath(working_directory)
